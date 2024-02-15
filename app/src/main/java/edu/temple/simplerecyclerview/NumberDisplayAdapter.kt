@@ -17,6 +17,10 @@ class NumberDisplayAdapter (private val _numbers: Array<Int>, _callBack: (Int)->
     inner class NumberViewHolder (layout: View) : RecyclerView.ViewHolder (layout) {
         // enumerate views inside layout
         val textView = layout.findViewById<TextView>(R.id.textView)
+
+        init {
+            textView.setOnClickListener {callBack(numbers[adapterPosition])}
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NumberViewHolder {
